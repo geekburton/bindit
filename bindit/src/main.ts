@@ -2,6 +2,7 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
+import bindItViaMutationObserver from './.internal/mutation-observer.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -21,4 +22,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+
+export const BindIt = {
+  bindItViaMutationObserver: bindItViaMutationObserver
+}
+
+const targetNode= document.querySelector('#app')!;
+BindIt.bindItViaMutationObserver(targetNode, { attributes: true, childList: true, subtree: true })
