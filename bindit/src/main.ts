@@ -25,8 +25,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 
 export const BindIt = {
-  bindItViaMutationObserver: bindItViaMutationObserver
+  observe: bindItViaMutationObserver
 }
 
-const targetNode= document.querySelector('#app')!;
-BindIt.bindItViaMutationObserver(targetNode, { attributes: true, childList: true, subtree: true })
+const targetNode = document.querySelector('#app')!;
+BindIt.observe(targetNode, { attributes: true, childList: true, subtree: true })
